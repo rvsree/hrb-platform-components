@@ -1,4 +1,4 @@
-# hrb-platform-components Roadmap
+# hrb_platform_components Roadmap
 
 Phase-by-phase plan and history, same convention as `hrb_chatbot_v2`'s `docs/agent-reference/RAG-ROADMAP.md`.
 

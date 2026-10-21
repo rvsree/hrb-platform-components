@@ -1,7 +1,7 @@
 ---
 name: session-start
 description: >
-  Run at the start of a Claude Code session on hrb-platform-components.
+  Run at the start of a Claude Code session on hrb_platform_components.
   Loads current branch, recent commits, and open work from ROADMAP.md -
   including whether Phase 0's deployment-model decision is still blocking.
   Invoke automatically on session start, or explicitly as /session-start.

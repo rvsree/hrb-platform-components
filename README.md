@@ -1,4 +1,4 @@
-# hrb-platform-components
+# hrb_platform_components
 
 Platform/admin capabilities for the HRB chatbot system: CI/CD dashboard, Interview Q&A, MCP tool catalog. No core RAG business logic, no LLM involvement.
 

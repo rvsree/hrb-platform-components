@@ -10,14 +10,12 @@ Full design (purpose, scope, the co-location recommendation and its alternative)
 
 Python 3.12, FastAPI.
 
-## ⚠ Open decision - not yet resolved
+## Deployment model - resolved 2026-10-21
 
-**Separate repo does not automatically mean separate deployed service.** Two real options, cost/isolation tradeoff unresolved as of repo creation (2026-10-21):
+**Standalone App Runner service, user-confirmed.** Two real options were on the table:
 
-1. **Mounted inside `rag_retrieval_service`'s process** (original recommendation) - this code ships as a dependency of that service, runs in the same App Runner deployment, zero extra AWS cost. Matches the earlier "co-located, not its own deployable" decision.
-2. **Its own standalone App Runner service** - real isolation (a bug here can't take down RAG retrieval), but a new always-on compute cost for low-traffic admin features.
-
-This repo is scaffolded to run standalone (`uvicorn src.platform.main:app`) so option 2 is possible, but nothing here commits to that choice over option 1. **Confirm which before writing the first real phase's spec** - it changes the deployment target, not the code itself.
+1. ~~Mounted inside `rag_retrieval_service`'s process~~ - not actually available today: `rag_retrieval_service` doesn't exist yet (a future RAG-service-split target, not a real service to mount into). Real isolation vs. that future service was the original tradeoff, but there's nothing to mount into right now.
+2. **Its own standalone App Runner service** (chosen) - real isolation (a bug here can't take down RAG retrieval, whenever that service exists), a new always-on compute cost for low-traffic admin features, accepted. This repo was already scaffolded to run standalone (`uvicorn src.platform.main:app`), so no scaffolding change needed - this just confirms that's the real target, not a placeholder.
 
 ## Commands
 
@@ -39,7 +37,7 @@ Three sub-capabilities, each its own module, no cross-dependencies between them:
 - `src/platform/build_deployment/` - CI/CD pipeline dashboard (GitHub Actions status, golden dataset gate)
 - `src/platform/mcp_catalog/` - MCP tool catalog discovery (extracted from Phase 239's `mcp_tools/__init__.py` additions)
 
-None of these import `llm`, `mcp` (the client extra, not this module), `storage`, or `web` from `hrb-common-libs` - zero LLM involvement, confirmed directly by journey 5 in the User Journey Capability Map.
+**Corrected 2026-10-21** - this used to claim none of the three import the `mcp` extra at all ("zero LLM involvement"); that was wrong for `mcp_catalog` specifically, found and fixed while scoping Phase 3: it ports Phase 239's real tool discovery (a live `session.list_tools()` call against the configured MCP server), so it genuinely needs `hrb-common-libs`' `mcp` extra (`call_mcp_tool`/`list_mcp_tools`). `interview_qa`/`build_deployment` still import none of `llm`/`mcp`/`storage`/`web` - that part was correct. No module imports `llm` - that's the real "zero LLM involvement" claim, still true.
 
 ## Spec-Driven Development
 

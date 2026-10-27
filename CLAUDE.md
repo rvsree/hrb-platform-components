@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Platform/admin capabilities for the HRB chatbot system: the CI/CD pipeline dashboard, Interview Q&A (Postgres-backed CRUD), and the MCP tool catalog - everything admin-facing that isn't core RAG business logic. Extracted as its own repo (separate from `hrb_chatbot_v2`'s RAG core) so these capabilities have their own HLD/LLD documentation and their own place in the build sequence, distinct from "build rag_retrieval_service."
+Platform/admin capabilities for the HRB chatbot system: the CI/CD pipeline dashboard, Interview Q&A (Postgres-backed CRUD), and the MCP tool catalog - everything admin-facing that isn't core RAG business logic. Extracted as its own repo (separate from `hrb_chatbot_v2`'s RAG core) so these capabilities have their own HLD/LLD documentation and their own place in the build sequence, distinct from "build hrb_rag_retrieval_service."
 
 Full design (purpose, scope, the co-location recommendation and its alternative) lives in `hrb_chatbot_v2`'s `docs/dev-reference/microservices-interface-matrix.html` (§5) and `docs/dev-reference/microservices-rollout-plan.html` - read those before changing anything here.
 
@@ -14,7 +14,7 @@ Python 3.12, FastAPI.
 
 **Standalone App Runner service, user-confirmed.** Two real options were on the table:
 
-1. ~~Mounted inside `rag_retrieval_service`'s process~~ - not actually available today: `rag_retrieval_service` doesn't exist yet (a future RAG-service-split target, not a real service to mount into). Real isolation vs. that future service was the original tradeoff, but there's nothing to mount into right now.
+1. ~~Mounted inside `hrb_rag_retrieval_service`'s process~~ - not actually available today: `hrb_rag_retrieval_service` doesn't exist yet (a future RAG-service-split target, not a real service to mount into). Real isolation vs. that future service was the original tradeoff, but there's nothing to mount into right now.
 2. **Its own standalone App Runner service** (chosen) - real isolation (a bug here can't take down RAG retrieval, whenever that service exists), a new always-on compute cost for low-traffic admin features, accepted. This repo was already scaffolded to run standalone (`uvicorn src.platform.main:app`), so no scaffolding change needed - this just confirms that's the real target, not a placeholder.
 
 ## Commands

@@ -4,7 +4,7 @@ A spec is a `**Spec:**` block written into the target phase's own bullet
 in `ROADMAP.md`'s `## Phases` section, **before** that phase's code starts.
 
 **Before writing Phase 1's spec:** confirm Phase 0 (deployment model -
-standalone service vs. mounted inside `rag_retrieval_service`) is actually
+standalone service vs. mounted inside `hrb_rag_retrieval_service`) is actually
 resolved with the user. Don't let it default silently.
 
 ## Steps

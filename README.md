@@ -29,6 +29,30 @@ Tests: `pytest tests/ -v` from the repo root.
 
 ## Tech stack
 
+```mermaid
+flowchart TD
+    HUB((hrb_platform_components))
+    HUB --> FW[Framework]
+    HUB --> CI[CI Integration]
+    HUB --> DEP[Deployment]
+
+    FW --> FW1[FastAPI]
+    FW --> FW2[Uvicorn]
+    CI --> C1[GitHub Actions API]
+    CI --> C2[PyGithub]
+    DEP --> D1[AWS App Runner]
+    DEP --> D2[Docker]
+
+    classDef hub fill:#4C1D95,color:#fff,stroke:#2E1065,stroke-width:2px
+    classDef fw fill:#1D4ED8,color:#fff,stroke:#1E3A8A
+    classDef ci fill:#047857,color:#fff,stroke:#064E3B
+    classDef dep fill:#475569,color:#fff,stroke:#1E293B
+    class HUB hub
+    class FW,FW1,FW2 fw
+    class CI,C1,C2 ci
+    class DEP,D1,D2 dep
+```
+
 | Layer | What's actually used |
 |---|---|
 | Framework | FastAPI + Uvicorn |

@@ -25,7 +25,7 @@ Tests: `pytest tests/ -v` from the repo root.
 |---|---|
 | Framework | FastAPI + Uvicorn |
 | CI integration | GitHub Actions REST API (via `PyGithub`), re-grounded 2026-10-24 for the real 7-repo split (Phase 255) |
-| Shared code | `hrb-common-libs[observability,db,ci,mcp,auth]`, pinned to `v0.4.0` |
+| Shared code | `hrb_common_libs[observability,db,ci,mcp,auth]`, pinned to `v0.4.0` |
 | Deployment | AWS App Runner (Docker, 2-stage build), 256 CPU / 512 Memory - smallest of the 6 containerized services |
 
 ## Status, 2026-10-24: live in production

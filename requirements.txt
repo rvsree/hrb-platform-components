@@ -1,4 +1,4 @@
 fastapi
 uvicorn[standard]
 pydantic
-hrb-common-libs[observability,db,ci,mcp,auth] @ git+https://github.com/rvsree/hrb-common-libs.git@v0.4.0
+hrb_common_libs[observability,db,ci,mcp,auth] @ git+https://github.com/rvsree/hrb_common_libs.git@v0.4.0

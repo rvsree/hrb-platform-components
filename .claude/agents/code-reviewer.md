@@ -8,7 +8,7 @@ Review the current diff, read-only - flag issues, never fix them.
 
 Check specifically:
 1. **Zero LLM involvement** - this repo never imports `llm`, `mcp`
-   (the client extra), `storage`, or `web` from `hrb-common-libs`. Any of
+   (the client extra), `storage`, or `web` from `hrb_common_libs`. Any of
    those appearing is a scope violation (confirmed by User Journey
    Capability Map journey 5 - admin/CI/CD work has no LLM call at all).
 2. **No cross-module coupling** - `interview_qa`, `build_deployment`, and

@@ -37,7 +37,7 @@ Three sub-capabilities, each its own module, no cross-dependencies between them:
 - `src/platform/build_deployment/` - CI/CD pipeline dashboard (GitHub Actions status, golden dataset gate)
 - `src/platform/mcp_catalog/` - MCP tool catalog discovery (extracted from Phase 239's `mcp_tools/__init__.py` additions)
 
-**Corrected 2026-10-21** - this used to claim none of the three import the `mcp` extra at all ("zero LLM involvement"); that was wrong for `mcp_catalog` specifically, found and fixed while scoping Phase 3: it ports Phase 239's real tool discovery (a live `session.list_tools()` call against the configured MCP server), so it genuinely needs `hrb-common-libs`' `mcp` extra (`call_mcp_tool`/`list_mcp_tools`). `interview_qa`/`build_deployment` still import none of `llm`/`mcp`/`storage`/`web` - that part was correct. No module imports `llm` - that's the real "zero LLM involvement" claim, still true.
+**Corrected 2026-10-21** - this used to claim none of the three import the `mcp` extra at all ("zero LLM involvement"); that was wrong for `mcp_catalog` specifically, found and fixed while scoping Phase 3: it ports Phase 239's real tool discovery (a live `session.list_tools()` call against the configured MCP server), so it genuinely needs `hrb_common_libs`' `mcp` extra (`call_mcp_tool`/`list_mcp_tools`). `interview_qa`/`build_deployment` still import none of `llm`/`mcp`/`storage`/`web` - that part was correct. No module imports `llm` - that's the real "zero LLM involvement" claim, still true.
 
 ## Spec-Driven Development
 

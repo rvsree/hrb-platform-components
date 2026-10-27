@@ -40,10 +40,10 @@ See `ROADMAP.md` for phase history. 3 orphan admin routes (admin-docs-sync-to-S3
 
 | Doc | What it covers |
 |---|---|
-| [`platform-and-admin/`](../hrb_chatbot_service/docs/dev-reference/hrb_chatbot_v3/platform-and-admin/) | `cicd-pipeline-visibility/`, `interview-faqs/`, `admin-secret-code/` - the full HTML doc sets |
-| [Build process](../hrb_chatbot_service/docs/dev-reference/hrb_chatbot_v3/deployment-and-ops/build-and-deploy/06a-hrb-platform-components-build-process.html) | Docker build, step-by-step |
-| [Deployment architecture (HTML)](../hrb_chatbot_service/docs/dev-reference/hrb_chatbot_v3/deployment-and-ops/build-and-deploy/06b-hrb-platform-components-deployment-architecture.html) | Same content as the `.drawio` above, narrative form |
-| [`microservices-interface-matrix.html`](../hrb_chatbot_service/docs/dev-reference/hrb_chatbot_v3/architecture/microservices-interface-matrix.html) | §5 - the deployment-model decision for this specific repo |
-| [`platform-overview.html`](../hrb_chatbot_service/docs/dev-reference/hrb_chatbot_v3/architecture/platform-overview.html) | The cross-service hub - business capabilities, all 7 repos, one diagram |
+| [`platform-and-admin/`](../docs/platform-and-admin/) | `cicd-pipeline-visibility/`, `interview-faqs/`, `admin-secret-code/` - the full HTML doc sets |
+| [Build process](../docs/deployment-and-ops/build-and-deploy/06a-hrb-platform-components-build-process.html) | Docker build, step-by-step |
+| [Deployment architecture (HTML)](../docs/deployment-and-ops/build-and-deploy/06b-hrb-platform-components-deployment-architecture.html) | Same content as the `.drawio` above, narrative form |
+| [`microservices-interface-matrix.html`](../docs/architecture/microservices-interface-matrix.html) | §5 - the deployment-model decision for this specific repo |
+| [`platform-overview.html`](../docs/architecture/platform-overview.html) | The cross-service hub - business capabilities, all 7 repos, one diagram |
 
 Older paths under `docs/dev-reference/` (no `hrb_chatbot_v3/` prefix) referenced in earlier commits are stale - that folder was reorganized 2026-10-23, and the links above reflect the real current location.
